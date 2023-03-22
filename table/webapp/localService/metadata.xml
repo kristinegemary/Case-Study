@@ -1,0 +1,156 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="bfa8d76e7fa20e7418d1b59c" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="bfa8d76e7fa20e7418d1b59c_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Employee_ListSet" EntityType="bfa8d76e7fa20e7418d1b59c.Employee_List" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="Employee_ListEmployee_Personal_InfoProject_List" Association="bfa8d76e7fa20e7418d1b59c.Employee_ListEmployee_Personal_InfoProject_List" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Employee_ListSet" Role="FromRole_Employee_ListEmployee_Personal_InfoProject_List"/>
+                    <End EntitySet="Project_ListSet" Role="ToRole_Employee_ListEmployee_Personal_InfoProject_List"/>
+                </AssociationSet>
+                <AssociationSet Name="Employee_ListEmployment_InfoSkill_Details" Association="bfa8d76e7fa20e7418d1b59c.Employee_ListEmployment_InfoSkill_Details" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Employee_ListSet" Role="FromRole_Employee_ListEmployment_InfoSkill_Details"/>
+                    <End EntitySet="Skill_DetailsSet" Role="ToRole_Employee_ListEmployment_InfoSkill_Details"/>
+                </AssociationSet>
+                <AssociationSet Name="Employee_ListProficiency_ListProficiency_List" Association="bfa8d76e7fa20e7418d1b59c.Employee_ListProficiency_ListProficiency_List" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Employee_ListSet" Role="FromRole_Employee_ListProficiency_ListProficiency_List"/>
+                    <End EntitySet="Proficiency_ListSet" Role="ToRole_Employee_ListProficiency_ListProficiency_List"/>
+                </AssociationSet>
+                <AssociationSet Name="Employee_ListSkill_ListSkill_List" Association="bfa8d76e7fa20e7418d1b59c.Employee_ListSkill_ListSkill_List" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Employee_ListSet" Role="FromRole_Employee_ListSkill_ListSkill_List"/>
+                    <End EntitySet="Skill_ListSet" Role="ToRole_Employee_ListSkill_ListSkill_List"/>
+                </AssociationSet>
+                <AssociationSet Name="Employee_ListCareer_ListCareer_List" Association="bfa8d76e7fa20e7418d1b59c.Employee_ListCareer_ListCareer_List" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Employee_ListSet" Role="FromRole_Employee_ListCareer_ListCareer_List"/>
+                    <End EntitySet="Career_ListSet" Role="ToRole_Employee_ListCareer_ListCareer_List"/>
+                </AssociationSet>
+                <EntitySet Name="Project_ListSet" EntityType="bfa8d76e7fa20e7418d1b59c.Project_List" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="Skill_DetailsSet" EntityType="bfa8d76e7fa20e7418d1b59c.Skill_Details" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="Proficiency_ListSet" EntityType="bfa8d76e7fa20e7418d1b59c.Proficiency_List" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="Skill_ListSet" EntityType="bfa8d76e7fa20e7418d1b59c.Skill_List" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="Career_ListSet" EntityType="bfa8d76e7fa20e7418d1b59c.Career_List" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+            </EntityContainer>
+            <EntityType Name="Employee_List" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="LastName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Last_Name"/>
+                <Property Name="FirstName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="First_Name"/>
+                <Property Name="CareerLevel" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Career_Level"/>
+                <Property Name="Age" Type="Edm.Int16" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Gender"/>
+                <Property Name="Date_Hire" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Civil_Status"/>
+                <Property Name="CurrentProject" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="CurrentProject"/>
+                <NavigationProperty Name="Employee_Personal_Info" Relationship="bfa8d76e7fa20e7418d1b59c.Employee_ListEmployee_Personal_InfoProject_List" FromRole="FromRole_Employee_ListEmployee_Personal_InfoProject_List" ToRole="ToRole_Employee_ListEmployee_Personal_InfoProject_List"/>
+                <NavigationProperty Name="Employment_Info" Relationship="bfa8d76e7fa20e7418d1b59c.Employee_ListEmployment_InfoSkill_Details" FromRole="FromRole_Employee_ListEmployment_InfoSkill_Details" ToRole="ToRole_Employee_ListEmployment_InfoSkill_Details"/>
+                <NavigationProperty Name="Proficiency_List" Relationship="bfa8d76e7fa20e7418d1b59c.Employee_ListProficiency_ListProficiency_List" FromRole="FromRole_Employee_ListProficiency_ListProficiency_List" ToRole="ToRole_Employee_ListProficiency_ListProficiency_List"/>
+                <NavigationProperty Name="Skill_List" Relationship="bfa8d76e7fa20e7418d1b59c.Employee_ListSkill_ListSkill_List" FromRole="FromRole_Employee_ListSkill_ListSkill_List" ToRole="ToRole_Employee_ListSkill_ListSkill_List"/>
+                <NavigationProperty Name="Career_List" Relationship="bfa8d76e7fa20e7418d1b59c.Employee_ListCareer_ListCareer_List" FromRole="FromRole_Employee_ListCareer_ListCareer_List" ToRole="ToRole_Employee_ListCareer_ListCareer_List"/>
+            </EntityType>
+            <Association Name="Employee_ListEmployee_Personal_InfoProject_List">
+                <End Type="bfa8d76e7fa20e7418d1b59c.Employee_List" Multiplicity="1" Role="FromRole_Employee_ListEmployee_Personal_InfoProject_List"/>
+                <End Type="bfa8d76e7fa20e7418d1b59c.Project_List" Multiplicity="*" Role="ToRole_Employee_ListEmployee_Personal_InfoProject_List"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Employee_ListEmployee_Personal_InfoProject_List">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Employee_ListEmployee_Personal_InfoProject_List">
+                        <PropertyRef Name="___FK_e848a1243e32a08318d834e1_00001"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Employee_ListEmployment_InfoSkill_Details">
+                <End Type="bfa8d76e7fa20e7418d1b59c.Employee_List" Multiplicity="1" Role="FromRole_Employee_ListEmployment_InfoSkill_Details"/>
+                <End Type="bfa8d76e7fa20e7418d1b59c.Skill_Details" Multiplicity="*" Role="ToRole_Employee_ListEmployment_InfoSkill_Details"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Employee_ListEmployment_InfoSkill_Details">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Employee_ListEmployment_InfoSkill_Details">
+                        <PropertyRef Name="___FK_e848a1243e32a08318d834e1_00003"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Employee_ListProficiency_ListProficiency_List">
+                <End Type="bfa8d76e7fa20e7418d1b59c.Employee_List" Multiplicity="1" Role="FromRole_Employee_ListProficiency_ListProficiency_List"/>
+                <End Type="bfa8d76e7fa20e7418d1b59c.Proficiency_List" Multiplicity="*" Role="ToRole_Employee_ListProficiency_ListProficiency_List"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Employee_ListProficiency_ListProficiency_List">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Employee_ListProficiency_ListProficiency_List">
+                        <PropertyRef Name="___FK_b31c34c5113a635e18ddaf66_00007"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Employee_ListSkill_ListSkill_List">
+                <End Type="bfa8d76e7fa20e7418d1b59c.Employee_List" Multiplicity="1" Role="FromRole_Employee_ListSkill_ListSkill_List"/>
+                <End Type="bfa8d76e7fa20e7418d1b59c.Skill_List" Multiplicity="*" Role="ToRole_Employee_ListSkill_ListSkill_List"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Employee_ListSkill_ListSkill_List">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Employee_ListSkill_ListSkill_List">
+                        <PropertyRef Name="___FK_b31c34c5113a635e18ddaf66_00009"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Employee_ListCareer_ListCareer_List">
+                <End Type="bfa8d76e7fa20e7418d1b59c.Employee_List" Multiplicity="1" Role="FromRole_Employee_ListCareer_ListCareer_List"/>
+                <End Type="bfa8d76e7fa20e7418d1b59c.Career_List" Multiplicity="*" Role="ToRole_Employee_ListCareer_ListCareer_List"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Employee_ListCareer_ListCareer_List">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Employee_ListCareer_ListCareer_List">
+                        <PropertyRef Name="___FK_b31c34c5113a635e18ddaf66_00011"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Project_List">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="ProjectId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DefaultName"/>
+                <Property Name="ProjectName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="First_Name"/>
+                <Property Name="___FK_e848a1243e32a08318d834e1_00001" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_e848a1243e32a08318d834e1_00001"/>
+            </EntityType>
+            <EntityType Name="Skill_Details">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="SkillId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Employee_ID"/>
+                <Property Name="Proficiency" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Hire_Date"/>
+                <Property Name="___FK_e848a1243e32a08318d834e1_00003" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_e848a1243e32a08318d834e1_00003"/>
+            </EntityType>
+            <EntityType Name="Proficiency_List">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_b31c34c5113a635e18ddaf66_00007" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_b31c34c5113a635e18ddaf66_00007"/>
+                <Property Name="ProficiencyId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ProficiencyId"/>
+                <Property Name="ProficiencyLevel" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ProficiencyLevel"/>
+            </EntityType>
+            <EntityType Name="Skill_List">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_b31c34c5113a635e18ddaf66_00009" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_b31c34c5113a635e18ddaf66_00009"/>
+                <Property Name="SkillId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="SkillId"/>
+                <Property Name="SkillName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="SkillName"/>
+            </EntityType>
+            <EntityType Name="Career_List">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_b31c34c5113a635e18ddaf66_00011" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_b31c34c5113a635e18ddaf66_00011"/>
+                <Property Name="CareerId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="CareerId"/>
+                <Property Name="CareerLevel" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="CareerName"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
